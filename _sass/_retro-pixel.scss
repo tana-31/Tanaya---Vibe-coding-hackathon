@@ -1,0 +1,379 @@
+/* ==========================================================================
+   RETRO PIXEL THEME - NES Blue
+   ========================================================================== */
+
+/* Import Pixel Fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* ==========================================================================
+   COLOR PALETTE - NES Blue
+   ========================================================================== */
+
+$retro-bg-dark: #1a1a2e;      /* Dark navy background */
+$retro-primary: #16213e;       /* Navy blue primary */
+$retro-accent: #0f4c75;        /* Bright blue accent */
+$retro-highlight: #3282b8;     /* Sky blue highlight */
+$retro-text-light: #e8f1f5;    /* Light text */
+$retro-border: #3282b8;        /* Pixel borders */
+
+/* ==========================================================================
+   PIXEL FONTS
+   ========================================================================== */
+
+$pixel-font: 'Press Start 2P', 'VT323', monospace;
+$pixel-font-body: 'VT323', 'Courier New', monospace;
+
+/* ==========================================================================
+   GLOBAL RETRO OVERRIDES
+   ========================================================================== */
+
+body {
+  background: $retro-bg-dark;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(50, 130, 184, 0.03) 0px,
+      rgba(50, 130, 184, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(50, 130, 184, 0.03) 0px,
+      rgba(50, 130, 184, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  background-size: 2px 2px;
+  color: $retro-text-light;
+}
+
+/* Override light theme colors */
+:root {
+  --global-bg-color: #{$retro-bg-dark};
+  --global-text-color: #{$retro-text-light};
+  --global-link-color: #{$retro-highlight};
+  --global-link-color-hover: #{$retro-accent};
+  --global-border-color: #{$retro-border};
+  --global-masthead-link-color: #{$retro-text-light};
+  --global-masthead-link-color-hover: #{$retro-highlight};
+  --global-footer-bg-color: #{$retro-primary};
+}
+
+/* ==========================================================================
+   RETRO HERO SECTION (START SCREEN)
+   ========================================================================== */
+
+.retro-hero {
+  background: linear-gradient(135deg, $retro-primary 0%, $retro-bg-dark 100%);
+  border: 4px solid $retro-border;
+  border-radius: 0;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 
+    0 0 0 4px $retro-bg-dark,
+    0 0 0 8px $retro-border,
+    0 8px 24px rgba(0, 0, 0, 0.5);
+  
+  /* Pixel corner decorations */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: $retro-highlight;
+  }
+  
+  &::before {
+    top: -4px;
+    left: -4px;
+  }
+  
+  &::after {
+    bottom: -4px;
+    right: -4px;
+  }
+}
+
+.retro-hero__avatar {
+  width: 150px;
+  height: 150px;
+  border: 4px solid $retro-border;
+  border-radius: 0;
+  margin: 0 auto 2rem;
+  image-rendering: pixelated;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  
+  img {
+    border-radius: 0;
+    image-rendering: auto;
+  }
+}
+
+.retro-hero__title {
+  font-family: $pixel-font;
+  font-size: 1.8rem;
+  color: $retro-highlight;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  text-shadow: 
+    3px 3px 0 $retro-accent,
+    6px 6px 0 rgba(0, 0, 0, 0.3);
+  line-height: 1.6;
+  
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+    text-shadow: 
+      2px 2px 0 $retro-accent,
+      4px 4px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+.retro-hero__tagline {
+  font-family: $pixel-font-body;
+  font-size: 1.5rem;
+  color: $retro-text-light;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
+
+.retro-hero__bio {
+  font-family: $sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: $retro-text-light;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+/* ==========================================================================
+   RETRO BUTTON (CTA)
+   ========================================================================== */
+
+.retro-btn {
+  display: inline-block;
+  font-family: $pixel-font;
+  font-size: 0.9rem;
+  color: $retro-text-light;
+  background: $retro-accent;
+  border: 3px solid $retro-highlight;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  transition: all 0.1s ease;
+  box-shadow: 
+    0 4px 0 $retro-primary,
+    0 8px 12px rgba(0, 0, 0, 0.4);
+  
+  &:hover {
+    background: $retro-highlight;
+    border-color: $retro-text-light;
+    transform: translateY(2px);
+    box-shadow: 
+      0 2px 0 $retro-primary,
+      0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 
+      0 0 0 $retro-primary,
+      0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Pixel arrow decoration */
+  &::before {
+    content: '▶ ';
+    margin-right: 0.5rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   MASTHEAD (Navigation) RETRO STYLING
+   ========================================================================== */
+
+.greedy-nav {
+  background: $retro-primary;
+  border-bottom: 3px solid $retro-border;
+  
+  a {
+    font-family: $pixel-font-body;
+    font-size: 1.2rem;
+    color: $retro-text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    
+    &:hover {
+      color: $retro-highlight;
+      background: rgba(50, 130, 184, 0.2);
+    }
+  }
+  
+  .site-title {
+    font-family: $pixel-font;
+    font-size: 1rem;
+    color: $retro-highlight;
+  }
+}
+
+/* ==========================================================================
+   SIDEBAR RETRO STYLING
+   ========================================================================== */
+
+.sidebar {
+  background: $retro-primary;
+  border: 3px solid $retro-border;
+  border-radius: 0;
+  
+  .author__avatar img {
+    border-radius: 0;
+    border: 3px solid $retro-border;
+    image-rendering: auto;
+  }
+  
+  .author__name {
+    font-family: $pixel-font-body;
+    font-size: 1.5rem;
+    color: $retro-highlight;
+  }
+  
+  .author__bio {
+    font-family: $sans-serif;
+    color: $retro-text-light;
+  }
+  
+  .author__urls {
+    a {
+      color: $retro-text-light;
+      border: 2px solid $retro-border;
+      background: $retro-bg-dark;
+      border-radius: 0;
+      
+      &:hover {
+        background: $retro-accent;
+        border-color: $retro-highlight;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+
+#main {
+  background: $retro-bg-dark;
+  color: $retro-text-light;
+}
+
+.page__content {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $pixel-font-body;
+    color: $retro-highlight;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    border-bottom: 3px solid $retro-border;
+    padding-bottom: 0.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid $retro-accent;
+    padding-bottom: 0.4rem;
+  }
+  
+  a {
+    color: $retro-highlight;
+    text-decoration: underline;
+    
+    &:hover {
+      color: $retro-text-light;
+    }
+  }
+  
+  p, li {
+    color: $retro-text-light;
+  }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.page__footer {
+  background: $retro-primary;
+  border-top: 3px solid $retro-border;
+  color: $retro-text-light;
+  
+  a {
+    color: $retro-highlight;
+    
+    &:hover {
+      color: $retro-text-light;
+    }
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+  .retro-hero {
+    padding: 2rem 1rem;
+    margin: 1rem;
+  }
+  
+  .retro-hero__title {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  .retro-hero__tagline {
+    font-size: 1rem;
+  }
+  
+  .retro-hero__bio {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+/* Focus states for keyboard navigation */
+a:focus,
+button:focus,
+.retro-btn:focus {
+  outline: 3px solid $retro-highlight;
+  outline-offset: 3px;
+}
+
+/* Ensure minimum contrast ratios */
+::selection {
+  background: $retro-highlight;
+  color: $retro-bg-dark;
+}
